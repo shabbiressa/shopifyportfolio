@@ -636,6 +636,86 @@
             padding: 2.5rem;
         }
 
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            background: rgba(139, 92, 246, 0.05);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .pricing-card.popular::after {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .price-tag {
+            margin: 1.5rem 0;
+        }
+
+        .price-tag span {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .price-tag small {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.8rem;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li i {
+            color: var(--primary-light);
+            font-size: 0.9rem;
+        }
+
         /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed;
@@ -669,9 +749,10 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .services-grid, .portfolio-grid, .testimonials-grid {
+            .services-grid, .portfolio-grid, .testimonials-grid, .pricing-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .pricing-card.popular { transform: scale(1); }
             .hero h1 { font-size: 3.5rem; }
         }
 
@@ -695,7 +776,7 @@
             
             .hero h1 { font-size: 2.8rem; }
             .about-container, .contact-container { grid-template-columns: 1fr; }
-            .services-grid, .portfolio-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .services-grid, .portfolio-grid, .testimonials-grid, .pricing-grid { grid-template-columns: 1fr; }
             
             section { padding: 80px 5%; }
         }
@@ -712,6 +793,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -778,6 +860,74 @@
                 <div class="service-icon"><i class="fas fa-store"></i></div>
                 <h3>Multi Product Shopify Store</h3>
                 <p>Robust, scalable infrastructure for catalogs of any size with advanced filtering and search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="section-header" data-aos="fade-up">
+            <div class="hero-badge">Pricing</div>
+            <h2>Premium Gig Packages</h2>
+            <p>Select the perfect plan to scale your Shopify store to the next level.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Basic Package -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <div class="service-icon"><i class="fas fa-medal" style="color: #cd7f32;"></i></div>
+                    <h3>Basic Setup</h3>
+                    <div class="price-tag">
+                        <span>$150</span>
+                        <small>– $300</small>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Shopify Setup</li>
+                        <li><i class="fas fa-check-circle"></i> Theme Customization</li>
+                        <li><i class="fas fa-check-circle"></i> Basic App Integration</li>
+                        <li><i class="fas fa-check-circle"></i> Essential SEO</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/923014433901" class="btn btn-outline" target="_blank">Get Started</a>
+            </div>
+
+            <!-- Standard Package -->
+            <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <div class="service-icon"><i class="fas fa-medal" style="color: #c0c0c0;"></i></div>
+                    <h3>Growth Engine</h3>
+                    <div class="price-tag">
+                        <span>$400</span>
+                        <small>– $800</small>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Custom Landing Page</li>
+                        <li><i class="fas fa-check-circle"></i> Conversion Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Product Page Design</li>
+                        <li><i class="fas fa-check-circle"></i> High-Converting Layout</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/923014433901" class="btn btn-primary" target="_blank">Select Plan</a>
+            </div>
+
+            <!-- Premium Package -->
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <div class="service-icon"><i class="fas fa-medal" style="color: #ffd700;"></i></div>
+                    <h3>Full Brand Store</h3>
+                    <div class="price-tag">
+                        <span>$1000</span>
+                        <small>– $2000</small>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Full Brand Store Design</li>
+                        <li><i class="fas fa-check-circle"></i> CRO Strategy</li>
+                        <li><i class="fas fa-check-circle"></i> Speed Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Upsells + Funnels</li>
+                        <li><i class="fas fa-check-circle"></i> VIP Support</li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/923014433901" class="btn btn-outline" target="_blank">Go Premium</a>
             </div>
         </div>
     </section>
